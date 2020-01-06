@@ -9,13 +9,6 @@ const getAll = (req, res) => {
         .catch(err => res.status(500).json(err));
 };
 
-const getOne = (req, res) => {
-    List.findOne({ id: req.params.id })
-        .exec()
-        .then(list => res.json(list))
-        .catch(err => res.status(500).json(err));
-};
-
 const create = (req, res) => {
     List.create(req.body)
         .then(createList => res.json(createList))
