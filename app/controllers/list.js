@@ -9,10 +9,21 @@ const getAll = (req, res) => {
         .catch(err => res.status(500).json(err));
 };
 
-const create = (req, res) => {
-    List.create(req.body)
-        .then(createList => res.json(createList))
-        .catch(err => res.status(500).json(err));
+const create = async (req, res) => {
+    let id = 0
+    List.find()
+        .exec()
+        .then(list => {
+            console.log(list)
+            list.forEach(elem => {
+                elem.id >= id ? id = elem.id + 1 : null
+            })
+            req.body.id = id
+            List.create(req.body)
+                .then(createList => res.json(createList))
+                .catch(err => res.status(500).json(err));
+        })
+        .catch(err => console.error(err));
 };
 
 const update = (req, res) => {
