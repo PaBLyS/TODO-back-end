@@ -14,7 +14,6 @@ const create = async (req, res) => {
     List.find()
         .exec()
         .then(list => {
-            console.log(list)
             list.forEach(elem => {
                 elem.id >= id ? id = elem.id + 1 : null
             })
