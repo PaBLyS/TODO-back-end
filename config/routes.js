@@ -5,4 +5,5 @@ module.exports = (app) => {
     app.post('/list', list.create);
     app.put('/list/:id', list.update);
     app.delete('/list/:id', list.remove);
+    app.delete('/list', list.clear);
 };

@@ -29,9 +29,17 @@ const remove = (req, res) => {
         .catch(err => res.status(500).json(err));
 };
 
+const clear = (req, res) => {
+    List.remove()
+        .exec()
+        .then(() => res.json({success: true}))
+        .catch(err => res.status(500).json(err));
+}
+
 module.exports = {
     getAll,
     create,
     update,
-    remove
+    remove,
+    clear
 };
