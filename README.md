@@ -2,6 +2,11 @@
 
 > API for the TODO-front-end project
 
+## Project setup
+```
+npm install
+```
+
 ## Build Setup
 ``` bash
 # start server on port 8080
